@@ -20,11 +20,11 @@ jobs:
         name: Build Prusa Slicer for ubuntu 22.04/arm64
         env:
           LATEST_VERSION: "version_2.3.1"
-          DPKG_ARCH: "amd64"
-          APPIMAGE_ARCH: "amd64"
-          ARCH: "amd64"
+          DPKG_ARCH: "arm64"
+          APPIMAGE_ARCH: "arm64"
+          ARCH: "arm64"
         run: |
-          docker run --env LATEST_VERSION --env DPKG_ARCH --env APPIMAGE_ARCH --env ARCH --platform linux/amd64 -v "$(pwd)":/app --workdir=/app ubuntu:noble ./build.sh
+          docker run --env LATEST_VERSION --env DPKG_ARCH --env APPIMAGE_ARCH --env ARCH --platform linux/arm64 -v "$(pwd)":/app --workdir=/app ubuntu:noble ./build.sh
       -
         name: Upload Prusa Slicer artifact version 2.3.1 for ubuntu 22.04/arm64
         uses: softprops/action-gh-release@v1
